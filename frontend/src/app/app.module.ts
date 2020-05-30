@@ -7,25 +7,37 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 
 import { authInterceptorProviders } from 'src/_helpers/auth.interceptor';
 import { HeaderComponent } from './template/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavComponent } from './template/nav/nav.component';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
+import { MatSidenavModule } from  '@angular/material/sidenav';
+import { MatListModule } from  '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,    
-    ProfileComponent, HeaderComponent
+    ProfileComponent, HeaderComponent, NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    BrowserAnimationsModule
 
   ],
   providers: [authInterceptorProviders],

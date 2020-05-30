@@ -22,15 +22,11 @@ export class AppComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.role = user.role;
 
-      this.showAdminBoard = this.role.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.role.includes('ROLE_MODERATOR');
+      this.showAdminBoard = this.role == 'admin';
+      this.showModeratorBoard = this.role == 'normal';
 
       this.username = user.username;
     }
   }
 
-  logout() {
-    this.tokenStorageService.signOut();
-    window.location.reload();
-  }
 }

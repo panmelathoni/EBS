@@ -19,6 +19,10 @@ export class TokenStorageService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
+  public isLoggedIn(): boolean {
+    return sessionStorage.getItem(TOKEN_KEY) != null;
+  }
+
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
   }

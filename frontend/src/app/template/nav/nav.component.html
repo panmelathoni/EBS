@@ -1,0 +1,17 @@
+<mat-sidenav-container class="sidenavcontainer " *ngIf="isLoggedIn" fullscreen >
+    <mat-sidenav class="side-nav mat-elevation-z8" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+        <mat-nav-list class="nav-list ">
+            <a mat-list-item routerLink="/home" [routerLinkActive]="['active']">
+                <i class="material-icons">home</i> Inicio
+            </a>
+            <a mat-list-item (click)="logout()" [routerLinkActive]="['active']">
+              <i class="material-icons">room</i> Logout
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+            <mat-sidenav-content class="content">
+                <router-outlet>
+          
+                </router-outlet>
+            </mat-sidenav-content>
+  </mat-sidenav-container>
