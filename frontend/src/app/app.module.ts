@@ -11,19 +11,21 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { authInterceptorProviders } from 'src/_helpers/auth.interceptor';
-
+import { HeaderComponent } from './template/header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,    
-    ProfileComponent
+    ProfileComponent, HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
 
   ],
   providers: [authInterceptorProviders],
