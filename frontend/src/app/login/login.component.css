@@ -1,0 +1,36 @@
+
+img{
+    width: 50%;    
+    padding: 15px; 
+
+}
+
+.img-background{
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+  
+  .content-box {   
+    color: white;
+    text-align: center;
+    width: 337px;
+  }
+
+
+  .padd-input {
+      padding: 10px 10px 0 10px ;
+  }
+
+  .login-btn{
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  .err-message {
+    margin: 0px;
+    padding: 5px;
+  }
