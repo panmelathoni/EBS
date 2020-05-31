@@ -1,6 +1,9 @@
 .header {
     display: flex;
     align-items: center;
+    background-color:#69bf46;    
+    font-weight: 600;
+    height:34px ;
 
 }
 
@@ -8,23 +11,18 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333;
+    color: #fff;
 }
 
-.header .logo {
-    max-width: 65px;
-}
+
 
 .header .title-group {
-    padding-left: 25px;
+    padding-left: 5px;
+    padding-right: 7px;
+    border-right: 2px solid #fff;
 }
 
-.header .title-group i {
-    padding-right: 5px;
-}
 
-.logo{
-    color: #1b64d3a9;
-    font-size: 1.7rem;
-    margin-right: 10px;
-}
+
+
+
