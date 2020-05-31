@@ -2,16 +2,20 @@
     display: flex;
     align-items: center;
     background-color:#69bf46;    
-    font-weight: 600;
+    font-weight: 300;
     height:34px ;
    
 
 }
 
 .header a{
-   
+   vertical-align: center;
     text-decoration: none;
     color: #fff;
+}
+
+.material-icons {
+    vertical-align: middle;
 }
 
 
@@ -22,7 +26,31 @@
     border-right: 2px solid #fff;
 }
 
+.personRole {     
+
+    color: #fff;
+    margin-left: 10px;
+    border-left: 2px solid #fff;
+    padding-left: 1px;
 
 
+}
+
+.header-div {
+    display: flex;
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    width: 50%;
+}
+
+.logged-person {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+   
+}
 
 

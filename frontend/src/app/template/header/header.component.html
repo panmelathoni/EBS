@@ -1,23 +1,25 @@
 <mat-toolbar class="header mat-elevation-z4" *ngIf="isLoggedIn">
-    <span>
+  <div class="header-div">
 
-        <a routerLink= "/">  
+    <div class="title">
+      <span class="title-group">
 
-            <p class="logo"></p>
-
-        </a>
-    </span>
-
-    <span class="title-group">
-        <a routerLink="/">
-            <i class="material-icons">
-             Icone
-            </i>
-
-            Titulo
-        </a>
-
-    </span>
+        <a routerLink="{{ routeUrl }}">
+          <i class="material-icons">
+            {{ icon }}
+          </i>
+          {{title}}
+      
+        </a>    
+      </span> 
+    </div>
 
 
+    <div class="logged-person">
+        <span class="personRole">
+          <i class="material-icons">perm_identity</i>
+          {{ loggedRole }}
+        </span> 
+      </div>  
+    </div> 
 </mat-toolbar>
