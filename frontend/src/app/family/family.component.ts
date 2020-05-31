@@ -42,7 +42,7 @@ export class FamilyComponent implements OnInit {
         this.snackBarService.showSuccessMessage("Family " + data.name + " created succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while creating family : " + err);
+        this.snackBarService.showErrorMessage("Error while creating family : " +  err.message);
       }
     );
   }
@@ -55,7 +55,7 @@ export class FamilyComponent implements OnInit {
         this.snackBarService.showSuccessMessage(data.length + " Family listed succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while list Family : " + err);
+        this.snackBarService.showErrorMessage("Error while list Family : " +  err.message);
       }
     );
   }
@@ -67,7 +67,7 @@ export class FamilyComponent implements OnInit {
         this.snackBarService.showSuccessMessage("Family " + data.name + " listed succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while list family : " + err);
+        this.snackBarService.showErrorMessage("Error while list family : " +  err.message);
       }
     );
   }

@@ -36,6 +36,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { PersonComponent } from './person/person.component';
 import { FamilyComponent } from './family/family.component';
 import { PersonAndFamilyStepperComponent } from './person-and-family-stepper/person-and-family-stepper.component';
+import { UpdatePersonComponent } from './update-person/update-person.component';
+import { UpdateFamilyComponent } from './update-family/update-family.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,10 @@ import { PersonAndFamilyStepperComponent } from './person-and-family-stepper/per
      HeaderComponent, 
      NavComponent, 
      PersonComponent, 
-     FamilyComponent, PersonAndFamilyStepperComponent
+     FamilyComponent, 
+     PersonAndFamilyStepperComponent, 
+     UpdatePersonComponent, 
+     UpdateFamilyComponent
   ],
   imports: [
     BrowserModule,

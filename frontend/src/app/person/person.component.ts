@@ -21,7 +21,7 @@ export class PersonComponent implements OnInit {
     role: "Admin",
   };
 
-  displayedColumns = ['name', 'username', 'password', 'age', 'family', 'role', 'action'];
+  displayedColumns = ['id','name', 'username', 'password', 'age', 'family', 'role', 'action'];
 
   constructor(private headerService : HeaderService, private tokenStorage: TokenStorageService, private personService: PersonService, private snackBarService: MessageSnackBarService ) {
     headerService.headerData = {
@@ -48,7 +48,7 @@ export class PersonComponent implements OnInit {
         this.snackBarService.showSuccessMessage("Person " + data.name + " updated succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while updating person : " + err);
+        this.snackBarService.showErrorMessage("Error while updating person : " +  err.message);
       }
     );
   }
@@ -61,7 +61,7 @@ export class PersonComponent implements OnInit {
         this.snackBarService.showSuccessMessage(data.length + " Persons listed succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while list person : " + err);
+        this.snackBarService.showErrorMessage("Error while list person : " +  err.message);
       }
     );
   }
@@ -73,7 +73,7 @@ export class PersonComponent implements OnInit {
         this.snackBarService.showSuccessMessage(" Persons " + data.name + " listed succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while list person : " + err);
+        this.snackBarService.showErrorMessage("Error while list person : " +  err.message);
       }
     );
   }

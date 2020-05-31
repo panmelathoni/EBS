@@ -64,7 +64,7 @@ export class PersonAndFamilyStepperComponent implements OnInit {
         this.snackBarService.showSuccessMessage("Person " + data.name + " created succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while creating person : " + err);
+        this.snackBarService.showErrorMessage("Error while creating person : " +  err.message);
       }
     );
   }
