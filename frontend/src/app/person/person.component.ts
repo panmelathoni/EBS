@@ -36,6 +36,9 @@ export class PersonComponent implements OnInit {
     this.getPersonsFromComponent();
   }
 
+  isAdmin(){
+    return this.headerService.headerData.loggedRole != null && this.headerService.headerData.loggedRole == "admin";
+  }
    //Colocar os valores do form de pessoas
    createPersonFromComponent(): void {
     this.personService.createPerson(this.person).subscribe(
