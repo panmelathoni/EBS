@@ -4,12 +4,12 @@
     background-color:#69bf46;    
     font-weight: 600;
     height:34px ;
+   
 
 }
 
 .header a{
-    display: flex;
-    align-items: center;
+   
     text-decoration: none;
     color: #fff;
 }

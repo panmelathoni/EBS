@@ -1,10 +1,10 @@
 .side-nav{
     background-color: #eeeeee;
-    width: 162px;
+    width: 162px;    
     left: 0px;
     border: none;
-    margin-bottom: 0px;   
-    margin-left: 0px;    
+    top:33px !important;
+    
 }
 
 .side-nav a {
@@ -36,6 +36,6 @@
 
    .sidenavcontainer{
     background-color: white;
-    top: 64px !important;
+    top: 32px !important;    
    }
    
