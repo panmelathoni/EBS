@@ -20,6 +20,12 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from  '@angular/material/sidenav';
 import { MatListModule } from  '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort'
+
+
 import { PersonComponent } from './person/person.component';
 import { FamilyComponent } from './family/family.component';
 
@@ -44,7 +50,10 @@ import { FamilyComponent } from './family/family.component';
     MatSidenavModule,
     MatListModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
 
   ],
   providers: [authInterceptorProviders],

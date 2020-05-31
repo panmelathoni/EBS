@@ -21,6 +21,8 @@ export class PersonComponent implements OnInit {
     role: "Admin",
   };
 
+  displayedColumns = ['name', 'username', 'password', 'age', 'family', 'role', 'action'];
+
   constructor(private headerService : HeaderService, private tokenStorage: TokenStorageService, private personService: PersonService, private snackBarService: MessageSnackBarService ) {
     headerService.headerData = {
       title: 'Person',
