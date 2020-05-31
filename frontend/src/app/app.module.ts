@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -19,25 +19,33 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from  '@angular/material/sidenav';
 import { MatListModule } from  '@angular/material/list';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort'
+import { MatSortModule } from '@angular/material/sort';
+import { MatStepperModule} from '@angular/material/stepper';
+
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
 
 
 import { PersonComponent } from './person/person.component';
 import { FamilyComponent } from './family/family.component';
+import { PersonAndFamilyStepperComponent } from './person-and-family-stepper/person-and-family-stepper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,    
+        
      HeaderComponent, 
      NavComponent, 
      PersonComponent, 
-     FamilyComponent
+     FamilyComponent, PersonAndFamilyStepperComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,13 @@ import { FamilyComponent } from './family/family.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
+
 
   ],
   providers: [authInterceptorProviders],

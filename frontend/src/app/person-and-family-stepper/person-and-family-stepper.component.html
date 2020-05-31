@@ -1,0 +1,41 @@
+<mat-horizontal-stepper linear>
+    <mat-step [stepControl]="personFormGroup" label="Person Data">
+      <form [formGroup]="personFormGroup" (ngSubmit)="createPerson(personFormGroup.value)" > 
+          <mat-form-field class="form-field-config">
+              <input matInput placeholder="User Name" type="text" name="username" formControlName="username" required/>
+              <mat-error *ngIf="hasErrorPerson('username', 'required')">Name is required</mat-error>            
+          </mat-form-field>
+          <mat-form-field class="form-field-config"> 
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+           </mat-form-field>
+
+            <mat-form-field class="form-field-config">
+                <input matInput placeholder="Name" type="text" name="name" formControlName="name" required/>
+                <mat-error *ngIf="hasErrorPerson('name', 'required')">Name is required</mat-error>            
+            </mat-form-field>
+      
+            <mat-form-field class="form-field-config"> 
+                <input matInput placeholder="Age" type="text" name="age" formControlName="age"/>
+            </mat-form-field>
+
+            <mat-form-field class="form-field-config">
+                <input matInput placeholder="Family" type="text" name="family" formControlName="family"/>
+            </mat-form-field>
+
+            <mat-form-field class="form-field-config">
+                <input matInput placeholder="Role" type="text" name="role" formControlName="role"/>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" [disabled]="!personFormGroup.valid" class="button-config">Create Person</button>
+            <button type="button" mat-raised-button color="warn" (click)="personFormGroup.reset()" class="form-field-config">Clear Form</button>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="familyFormGroup" label="Family Data">  
+      <form [formGroup]="familyFormGroup">
+        <mat-form-field>
+            <input matInput placeholder="Teste 2" type="text" name="linkUrl" formControlName="inputteste2" required/>
+        </mat-form-field>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
