@@ -2,6 +2,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Family } from '../_models/family.model'
+import { TokenStorageService } from './token-storage.service';
 
 const ADDRESS_API = '/api/';
 
@@ -19,7 +20,9 @@ const httpOptions = {
 })
 export class FamilyService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {
+    this.tokenStorage.doLogin();
+   }
 
   createFamily(family: Family): Observable<any> {
     return this.http.post(ADDRESS_API + 'families', {

@@ -1,3 +1,4 @@
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -18,7 +19,9 @@ const httpOptions = {
 })
 export class PersonService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {
+    this.tokenStorage.doLogin();
+   }
 
 
   createPerson(person : Person): Observable<any> {
@@ -39,7 +42,7 @@ export class PersonService {
   }
 
   getPersons(): Observable<Person[]> {
-    console.log("get persons");
+    
     return this.http.get<Person[]>(ADDRESS_API + 'persons');
   }
 
