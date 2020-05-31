@@ -1,6 +1,9 @@
+import { MessageSnackBarService } from './../_services/message-snack-bar.service';
+import { PersonService } from './../_services/person.service';
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../template/header/header.service';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { Person } from '../_models/person.model';
 
 @Component({
   selector: 'app-person',
@@ -8,8 +11,17 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
+  persons: Person[];
+  public person: Person = {
+    name: "Panmela",
+    username: "ptms",
+    password: "12345",
+    age: "27",
+    family: 0,
+    role: "Admin",
+  };
 
-  constructor(private headerService : HeaderService, private tokenStorage: TokenStorageService ) {
+  constructor(private headerService : HeaderService, private tokenStorage: TokenStorageService, private personService: PersonService, private snackBarService: MessageSnackBarService ) {
     headerService.headerData = {
       title: 'Person',
       icon: 'account_box',
@@ -19,6 +31,57 @@ export class PersonComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getPersonsFromComponent();
+  }
+
+   //Colocar os valores do form de pessoas
+   createPersonFromComponent(): void {
+    this.personService.createPerson(this.person).subscribe(
+      data => {
+        this.snackBarService.showSuccessMessage("Person " + data.name + " created succesfuly");
+      },
+      err => {
+        this.snackBarService.showErrorMessage("Error while creating person : " + err);
+      }
+    );
+  }
+
+  //Colocar os valores do form de pessoas 
+  updatePersonFromComponent(): void {
+    this.personService.uptadePerson(this.person).subscribe(
+      data => {
+        this.snackBarService.showSuccessMessage("Person " + data.name + " updated succesfuly");
+      },
+      err => {
+        this.snackBarService.showErrorMessage("Error while updating person : " + err);
+      }
+    );
+  }
+
+  //Colocar os valores do form de pessoas 
+  getPersonsFromComponent(): void {
+    this.personService.getPersons().subscribe(
+      data => {
+        this.persons = data;
+        this.snackBarService.showSuccessMessage(data.length + " Persons listed succesfuly");
+      },
+      err => {
+        this.snackBarService.showErrorMessage("Error while list person : " + err);
+      }
+    );
+  }
+
+  getPersonByIdFromComponent(): void {
+    this.personService.getPersonById(1).subscribe(
+      data => {
+        this.person = data;
+        this.snackBarService.showSuccessMessage(" Persons " + data.name + " listed succesfuly");
+      },
+      err => {
+        this.snackBarService.showErrorMessage("Error while list person : " + err);
+      }
+    );
   }
 
 }
+

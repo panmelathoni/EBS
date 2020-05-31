@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from  '@angular/material/sidenav';
 import { MatListModule } from  '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { PersonComponent } from './person/person.component';
 import { FamilyComponent } from './family/family.component';
 
@@ -42,6 +43,7 @@ import { FamilyComponent } from './family/family.component';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
+    MatSnackBarModule,
     BrowserAnimationsModule
 
   ],
