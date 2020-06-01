@@ -36,8 +36,10 @@ export class PersonService {
   }
 
   uptadePerson(person: Person): Observable<any> {
-    return this.http.patch(ADDRESS_API + 'persons', {
-      family: person.family
+    return this.http.put(ADDRESS_API + 'persons/' + person.id, {
+      username: person.username,
+      password: person.password,
+      family: parseInt(person.family.toString())
     }, httpOptions);
   }
 

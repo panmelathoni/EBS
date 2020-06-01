@@ -58,6 +58,7 @@ export class UpdatePersonComponent implements OnInit {
 
   private executePersonUpdate = (personFormGroupValue) => {
     let person: Person = {
+      id: parseInt(this.route.snapshot.paramMap.get('id')),
       name: personFormGroupValue.name,
       username: personFormGroupValue.username,
       password: personFormGroupValue.password,
@@ -65,8 +66,6 @@ export class UpdatePersonComponent implements OnInit {
       family: personFormGroupValue.family,
       role: personFormGroupValue.role,
     };
-    console.log('pre update person');
-    console.log(person);
 
     this.personService.uptadePerson(person).subscribe(
       (data) => {
@@ -75,6 +74,7 @@ export class UpdatePersonComponent implements OnInit {
         );
       },
       (err) => {
+        console.log(err);
         var error =  err.error != null ? err.error : err.message;
         this.snackBarService.showErrorMessage(
           'Error while updating person : ' + error
