@@ -74,7 +74,6 @@ export class UpdatePersonComponent implements OnInit {
         );
       },
       (err) => {
-        console.log(err);
         var error =  err.error != null ? err.error : err.message;
         this.snackBarService.showErrorMessage(
           'Error while updating person : ' + error

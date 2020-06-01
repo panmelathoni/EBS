@@ -3,21 +3,21 @@
 
         <form [formGroup]="personFormGroup" (ngSubmit)="updatePerson(personFormGroup.value)" > 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="User Name" type="text" name="username" formControlName="username" required/>
+                <input matInput placeholder="User Name" type="text" name="username" formControlName="username" readonly/>
                 <mat-error *ngIf="hasErrorPerson('username', 'required')">Name is required</mat-error>            
             </mat-form-field>
             <mat-form-field class="form-field-config"> 
-            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password" required>
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password" readonly>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="Name" type="text" name="name" formControlName="name" required/>
+                <input matInput placeholder="Name" type="text" name="name" formControlName="name" readonly/>
                 <mat-error *ngIf="hasErrorPerson('name', 'required')">Name is required</mat-error>            
             </mat-form-field>
 
             <mat-form-field class="form-field-config"> 
-                <input matInput placeholder="Age" type="text" name="age" formControlName="age"/>
+                <input matInput placeholder="Age" type="text" name="age" formControlName="age" readonly/>
             </mat-form-field>
 
             <mat-form-field class="form-field-config">
@@ -25,10 +25,10 @@
             </mat-form-field>
 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="Role" type="text" name="role" formControlName="role"/>
+                <input matInput placeholder="Role" type="text" name="role" formControlName="role" readonly/>
             </mat-form-field>
             <div class="center-align"> 
-                <button mat-raised-button color="primary" [disabled]="!personFormGroup.valid" class="button-config">Update Person</button>
+                <button mat-raised-button  [disabled]="!personFormGroup.valid" class="button-config">Update Person</button>
                 <button type="button" mat-raised-button color="warn" routerLink="/person" class="form-field-config">Cancel</button>
             </div>
         </form>

@@ -27,7 +27,7 @@ export class PersonComponent implements OnInit {
     headerService.headerData = {
       title: 'Person',
       icon: 'account_box',
-      routeUrl: '',
+      routeUrl: '/person',
       loggedRole:  this.tokenStorage.getUser() !=null ? this.tokenStorage.getUser().person_role : ""
     }    
    }

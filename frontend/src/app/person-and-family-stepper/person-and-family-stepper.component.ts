@@ -53,6 +53,7 @@ selection = new SelectionModel<Person>(allowMultiSelect, initialSelection);
     if (this.familyFormGroup.valid) {
       this.executeFamilyCreation(familyFormGroupValue);
     }
+    this.router.navigate(['/person']);
   }
  
   private executeFamilyCreation = (familyFormGroupValue) => {

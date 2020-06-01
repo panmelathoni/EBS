@@ -27,8 +27,8 @@
           <input matInput placeholder="Role" type="text" name="role" formControlName="role"/>
       </mat-form-field>
       <div>
-          <button mat-raised-button color="primary" [disabled]="!personFormGroup.valid" class="button-config">Create Person</button>
-          <button type="button" mat-raised-button color="primary" (click)="personFormGroup.reset()" class="form-field-config">Clear Form</button>
+          <button mat-raised-button  [disabled]="!personFormGroup.valid" class="button-config">Create Person</button>
+          <button type="button" mat-raised-button color="warn" (click)="personFormGroup.reset()" class="form-field-config">Clear Form</button>
       </div>
   </form>
 </mat-card>

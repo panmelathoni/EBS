@@ -12,3 +12,7 @@ button {
 .center-align{
     text-align: center;
 }
+
+.button-config{
+    background-color: #69bf46;
+}

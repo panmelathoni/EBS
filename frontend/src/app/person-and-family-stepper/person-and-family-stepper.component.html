@@ -1,5 +1,5 @@
-<mat-horizontal-stepper>
-    <mat-step [stepControl]="familyFormGroup" label="Family " >  
+<mat-horizontal-stepper linear >
+    <mat-step [stepControl]="familyFormGroup" label="Family ">  
         <h4>FAMILY INFORMATION</h4>
         <hr>
         <form [formGroup]="familyFormGroup"  >
@@ -8,7 +8,7 @@
             </mat-form-field>
 
           <mat-form-field>           
-            <input matInput placeholder="MaxPerson" type="text" name="inputmaxPerson" formControlName="inputmaxPerson" required/>
+            <input matInput placeholder="Maximum Number of Persons" type="text" name="inputmaxPerson" formControlName="inputmaxPerson" required/>
           </mat-form-field>              
 
         </form>
@@ -92,8 +92,8 @@
             
         </div>
                 <div class="btn-center">
-                    <button mat-raised-button color="primary" [disabled]="!familyFormGroup.valid" class="button-config btn-space" (click)= "createFamily(familyFormGroup.value)">Create Family</button>
-                    <button type="button" mat-raised-button color="primary" routerLink="/person" class="form-field-config">Cancel</button>
+                    <button mat-raised-button  [disabled]="!familyFormGroup.valid" class="button-config btn-space" (click)= "createFamily(familyFormGroup.value)">Create Family</button>
+                    <button type="button" mat-raised-button color="warn" routerLink="/person" class="form-field-config">Cancel</button>
 
                 </div>
      

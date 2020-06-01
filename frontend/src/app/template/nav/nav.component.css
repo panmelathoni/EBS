@@ -1,6 +1,6 @@
 .side-nav{
     background-color: #eeeeee;
-    width: 162px;    
+    width: 188px;    
     left: 0px;
     border: none;
     top:33px !important;
@@ -26,6 +26,7 @@
 
 .content {
     padding: 16px;
+    padding-left: 40px;
     background-color: white;
     color: #515585;
     width: calc(100% - 200px);

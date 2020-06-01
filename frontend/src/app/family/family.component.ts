@@ -56,11 +56,11 @@ export class FamilyComponent implements OnInit {
       
       data => {
         this.families = data;
-        this.snackBarService.showSuccessMessage(data.length + " Family listed succesfuly");
+        this.snackBarService.showSuccessMessage(data.length + " Families listed succesfuly");
       },
       err => {
         var error =  err.error != null ? err.error : err.message;
-        this.snackBarService.showErrorMessage("Error while list Family : " +  error);
+        this.snackBarService.showErrorMessage("Error while list Families : " +  error);
       }
     );
   }
