@@ -9,6 +9,7 @@ import { FamilyComponent } from './family/family.component';
 import { PersonAndFamilyStepperComponent} from './person-and-family-stepper/person-and-family-stepper.component';
 import { UpdatePersonComponent } from './update-person/update-person.component';
 import { UpdateFamilyComponent } from './update-family/update-family.component';
+import { DeletePersonComponent } from './delete-person/delete-person.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'family', component: FamilyComponent },
   { path: 'personAndFamily', component: PersonAndFamilyStepperComponent },
   { path: 'updatePerson/:id', component: UpdatePersonComponent },
+  { path: 'deletePerson/:id', component: DeletePersonComponent },
   { path: 'updateFamily/:id', component: UpdateFamilyComponent },
 
 

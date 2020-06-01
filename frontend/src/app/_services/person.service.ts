@@ -49,4 +49,9 @@ export class PersonService {
    getPersonById(id: number): Observable<Person> {
     return this.http.get<Person>(ADDRESS_API + 'persons/' + id);
   }
+
+  delete(id: number): Observable<Person> {
+    return this.http.delete<Person>(ADDRESS_API + 'persons/' + id)
+
+  }
 }
