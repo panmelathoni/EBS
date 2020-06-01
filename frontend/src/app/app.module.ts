@@ -39,6 +39,7 @@ import { PersonAndFamilyStepperComponent } from './person-and-family-stepper/per
 import { UpdatePersonComponent } from './update-person/update-person.component';
 import { UpdateFamilyComponent } from './update-family/update-family.component';
 import { DeletePersonComponent } from './delete-person/delete-person.component';
+import { CreatePersonComponent } from './create-person/create-person.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { DeletePersonComponent } from './delete-person/delete-person.component';
      PersonAndFamilyStepperComponent, 
      UpdatePersonComponent, 
      UpdateFamilyComponent, 
-     DeletePersonComponent
+     DeletePersonComponent, CreatePersonComponent
   ],
   imports: [
     BrowserModule,

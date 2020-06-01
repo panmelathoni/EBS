@@ -3,7 +3,7 @@ export interface Person {
     username: string,
     password: string,
     name: string,
-    age?: string,
+    age?: number,
     family?: number,
     role: string
     

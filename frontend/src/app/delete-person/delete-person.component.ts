@@ -5,11 +5,6 @@ import { PersonService } from '../_services/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
-
-
-
-
-
 @Component({
   selector: 'app-delete-person',
   templateUrl: './delete-person.component.html',
@@ -19,15 +14,14 @@ export class DeletePersonComponent implements OnInit {
   person: Person;
   personFormGroup: FormGroup;
   hide = true;
-  messageSnackBarService: any;
-  
+
 
   constructor(
     private personService: PersonService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
-    private snackBarService: MessageSnackBarService,
+    private snackBarService: MessageSnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -53,13 +47,21 @@ export class DeletePersonComponent implements OnInit {
     });
   }
 
-  deletePerson():void {
-    this.personService.delete(this.person.id).subscribe(()=>{
-      this.messageSnackBarService.showSuccessMessage("Person deleted successfully")
-    })
+  deletePerson(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    this.personService.delete(parseInt(id)).subscribe(
+      data => {
+        this.snackBarService.showSuccessMessage("Person deleted succesfuly");
+        this.router.navigate(['/person']);
+      },
+      err => {
+        this.snackBarService.showErrorMessage("Error while deleting person : " +  err.message);
+      }
+    );
   }
 
   cancel(): void {
-    this.router.navigate(['/person'])
+    this.router.navigate(['/person']);
   }
 }

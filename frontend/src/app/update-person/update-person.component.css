@@ -7,3 +7,7 @@ button {
     margin: 20px 15px 0px 0px;
     width: 200px;
 }
+
+.center-align{
+    text-align: center;
+}

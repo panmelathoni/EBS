@@ -1,4 +1,4 @@
-<mat-horizontal-stepper linear>
+<mat-horizontal-stepper>
     <mat-step [stepControl]="personFormGroup" label="Person Data">
       <form [formGroup]="personFormGroup" (ngSubmit)="createPerson(personFormGroup.value)" > 
           <mat-form-field class="form-field-config">
@@ -26,9 +26,10 @@
             <mat-form-field class="form-field-config">
                 <input matInput placeholder="Role" type="text" name="role" formControlName="role"/>
             </mat-form-field>
-
-            <button mat-raised-button color="primary" [disabled]="!personFormGroup.valid" class="button-config">Create Person</button>
-            <button type="button" mat-raised-button color="warn" (click)="personFormGroup.reset()" class="form-field-config">Clear Form</button>
+            <div>
+                <button mat-raised-button color="primary" [disabled]="!personFormGroup.valid" class="button-config">Create Person</button>
+                <button type="button" mat-raised-button color="warn" (click)="personFormGroup.reset()" class="form-field-config">Clear Form</button>
+            </div>
         </form>
     </mat-step>
     <mat-step [stepControl]="familyFormGroup" label="Family Data">  

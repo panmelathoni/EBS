@@ -10,6 +10,7 @@ import { PersonAndFamilyStepperComponent} from './person-and-family-stepper/pers
 import { UpdatePersonComponent } from './update-person/update-person.component';
 import { UpdateFamilyComponent } from './update-family/update-family.component';
 import { DeletePersonComponent } from './delete-person/delete-person.component';
+import { CreatePersonComponent } from './create-person/create-person.component';
 
 
 
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'updatePerson/:id', component: UpdatePersonComponent },
   { path: 'deletePerson/:id', component: DeletePersonComponent },
   { path: 'updateFamily/:id', component: UpdateFamilyComponent },
+  { path: 'createPerson', component: CreatePersonComponent },
+
 
 
 

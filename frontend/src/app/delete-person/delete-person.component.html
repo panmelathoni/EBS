@@ -3,32 +3,33 @@
 
         <form [formGroup]="personFormGroup" (ngSubmit)="deletePerson()" > 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="User Name" type="text" name="username" formControlName="username" disabled readonly/>
+                <input matInput placeholder="User Name" type="text" name="username" formControlName="username"  readonly/>
                         
             </mat-form-field>
             <mat-form-field class="form-field-config"> 
-            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password" disabled readonly />
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password" formControlName="password"  readonly />
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="Name" type="text" name="name" formControlName="name" disabled readonly/>
+                <input matInput placeholder="Name" type="text" name="name" formControlName="name"  readonly/>
                          
             </mat-form-field>
 
             <mat-form-field class="form-field-config"> 
-                <input matInput placeholder="Age" type="text" name="age" formControlName="age" disabled readonly/>
+                <input matInput placeholder="Age" type="text" name="age" formControlName="age"  readonly/>
             </mat-form-field>
 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="Family" type="text" name="family" formControlName="family" disabled readonly/>
+                <input matInput placeholder="Family" type="text" name="family" formControlName="family"  readonly/>
             </mat-form-field>
 
             <mat-form-field class="form-field-config">
-                <input matInput placeholder="Role" type="text" name="role" formControlName="role" disabled readonly/>
+                <input matInput placeholder="Role" type="text" name="role" formControlName="role"  readonly/>
             </mat-form-field>
-
+            <div class="center-align">  
             <button mat-raised-button color="warn" [disabled]="!personFormGroup.valid" class="button-config">Delete Person</button>
             <button type="button" mat-raised-button color="primary" routerLink="/person" class="form-field-config">Cancel</button>
+            </div>
         </form>
 </mat-card>

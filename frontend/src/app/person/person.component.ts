@@ -16,7 +16,7 @@ export class PersonComponent implements OnInit {
     name: "Panmela",
     username: "ptms",
     password: "12345",
-    age: "27",
+    age: 27,
     family: 0,
     role: "Admin",
   };
