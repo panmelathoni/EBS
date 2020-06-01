@@ -1,3 +1,4 @@
+import { Person } from './../_models/person.model';
 import { MessageSnackBarService } from './../_services/message-snack-bar.service';
 import { FamilyService } from './../_services/family.service';
 import { PersonService } from './../_services/person.service';
@@ -5,67 +6,101 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 
-import { Person } from '../_models/person.model';
+
+import { Family } from '../_models/family.model';
+import { Router } from '@angular/router';
+import { SelectionModel } from '@angular/cdk/collections';
 
 
 
+  const initialSelection = [];
+const allowMultiSelect = true;
 @Component({
   selector: 'app-person-and-family-stepper',
   templateUrl: './person-and-family-stepper.component.html',
   styleUrls: ['./person-and-family-stepper.component.css']
 })
 export class PersonAndFamilyStepperComponent implements OnInit {
-  personFormGroup : FormGroup;
+
+selection = new SelectionModel<Person>(allowMultiSelect, initialSelection);
   familyFormGroup : FormGroup;
   isOptional : boolean = false;
   hide = true;
 
-  constructor(private formBuilder: FormBuilder, private personService: PersonService, private familyService: FamilyService, private snackBarService: MessageSnackBarService) { }
+  persons: Person[];
+   personsSelected: Person[];
+
+  displayedColumns = ['select','id','name', 'username', 'password', 'age', 'family', 'role'];
+
+    
+    constructor(private formBuilder: FormBuilder, private personService: PersonService, private familyService: FamilyService, private snackBarService: MessageSnackBarService, private router: Router, ) { }
 
   ngOnInit(): void {
-    this.personFormGroup = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4)]],
-      name: ['', Validators.required],
-      age: [''],
-      role: [''],
-      family: ['']
-    });
+
+    this.getPersonsFromComponent(); 
 
     this.familyFormGroup = this.formBuilder.group({
-      inputteste2: ['', Validators.required]
+      inputname: ['', Validators.required],
+      inputmaxPerson: ['', Validators.required]
     });
   }
 
-  public hasErrorPerson = (controlName: string, errorName: string) =>{
-    return this.personFormGroup.controls[controlName].hasError(errorName);
+  public hasErrorFamily = (controlName: string, errorName: string) =>{
+    return this.familyFormGroup.controls[controlName].hasError(errorName);
   }
 
-  public createPerson = (personFormGroupValue) => {
-    if (this.personFormGroup.valid) {
-      this.executePersonCreation(personFormGroupValue);
+  public createFamily = (familyFormGroupValue) => {
+    if (this.familyFormGroup.valid) {
+      this.executeFamilyCreation(familyFormGroupValue);
     }
   }
  
-  private executePersonCreation = (personFormGroupValue) => {
-    let person: Person = {
-      name: personFormGroupValue.name,
-      username: personFormGroupValue.username,
-      password: personFormGroupValue.password,
-      age: personFormGroupValue.age,
-      family: personFormGroupValue.family,
-      role: personFormGroupValue.role,
+  private executeFamilyCreation = (familyFormGroupValue) => {
+    let family: Family = {
+      name: familyFormGroupValue.inputname,
+      max_persons: familyFormGroupValue.inputmaxPerson,
+      persons:this.selection.selected
     }
-    console.log("pre create person");
-    console.log(person);
-
-    this.personService.createPerson(person).subscribe(
+    this.familyService.createFamily(family).subscribe(
       data => {
-        this.snackBarService.showSuccessMessage("Person " + data.name + " created succesfuly");
+        this.snackBarService.showSuccessMessage("Family " + data.name + " created succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while creating person : " +  err.message);
+        var error =  err.error != null ? err.error : err.message;
+        this.snackBarService.showErrorMessage("Error while creating family : " + error);
       }
     );
+  }
+
+  getPersonsFromComponent(): void {
+    this.personService.getPersons().subscribe(
+      data => {
+        this.persons = data;        
+      },
+      err => {
+        var error =  err.error != null ? err.error : err.message;
+        this.snackBarService.showErrorMessage("Error while list person : " +  error);
+      }
+    );
+  }
+
+  cancel(): void {
+    this.router.navigate(['/person']);
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.persons.length;
+    return numSelected == numRows;
+  }
+
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.persons.forEach(row =>{
+          this.selection.select(row)
+        } );
   }
 }

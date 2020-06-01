@@ -48,7 +48,8 @@ export class PersonComponent implements OnInit {
         this.snackBarService.showSuccessMessage("Person " + data.name + " updated succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while updating person : " +  err.message);
+        var error =  err.error != null ? err.error : err.message;
+        this.snackBarService.showErrorMessage("Error while updating person : " +  error);
       }
     );
   }
@@ -61,7 +62,8 @@ export class PersonComponent implements OnInit {
         this.snackBarService.showSuccessMessage(data.length + " Persons listed succesfuly");
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while list person : " +  err.message);
+        var error =  err.error != null ? err.error : err.message;
+        this.snackBarService.showErrorMessage("Error while list person : " +  error);
       }
     );
   }

@@ -64,8 +64,7 @@ export class CreatePersonComponent implements OnInit {
       family: personFormGroupValue.family,
       role: personFormGroupValue.role,
     };
-    console.log('pre create person');
-    console.log(person);
+
 
     this.personService.createPerson(person).subscribe(
       (data) => {
@@ -74,9 +73,11 @@ export class CreatePersonComponent implements OnInit {
         );
       },
       (err) => {
-        console.log(err);
+
+        var error =  err.error != null ? err.error : err.message;
         this.snackBarService.showErrorMessage(
-          'Error while creating person : ' + err.message
+
+          'Error while creating person : ' + error
         );
       }
     );

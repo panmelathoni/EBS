@@ -56,7 +56,8 @@ export class DeletePersonComponent implements OnInit {
         this.router.navigate(['/person']);
       },
       err => {
-        this.snackBarService.showErrorMessage("Error while deleting person : " +  err.message);
+        var error =  err.error != null ? err.error : err.message;
+        this.snackBarService.showErrorMessage("Error while deleting person : " + error);
       }
     );
   }

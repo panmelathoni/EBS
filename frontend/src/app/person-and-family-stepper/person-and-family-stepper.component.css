@@ -18,3 +18,19 @@ form {
 h4{
     margin-top: 25px;
 }
+
+table {
+    width: 100%;
+}
+
+.btn-space{
+    margin-top: 20px;
+}
+
+.btn-center{
+    text-align: center;
+}
+
+.mat-column-select {
+    overflow: initial;
+  }

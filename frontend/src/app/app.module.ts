@@ -26,6 +26,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule} from '@angular/material/stepper';
 
+import { MatCheckboxModule} from '@angular/material/checkbox'
+
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -75,7 +77,8 @@ import { CreatePersonComponent } from './create-person/create-person.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
 
 
   ],
