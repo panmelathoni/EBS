@@ -27,8 +27,8 @@ export class FamilyService {
   createFamily(family: Family): Observable<any> {
     return this.http.post(ADDRESS_API + 'families', {
       name: family.name,
-      max_persons: family.maxPerson,
-      persons: family.person,
+      max_persons: family.max_persons,
+      persons: family.persons,
     }, httpOptions);
   }
 

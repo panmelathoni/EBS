@@ -1,3 +1,4 @@
+import { NavComponent } from './../template/nav/nav.component';
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../template/header/header.service';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -15,10 +16,11 @@ export class FamilyComponent implements OnInit {
   public family: Family = {
     "id": 10,
     "name": "familyb",
-    "maxPerson": 2,
-    "person": []
+    "max_persons": 2,
+    "persons": []
 
   }
+  displayedColumns = ['id','name', 'max_persons', 'persons'];
 
   constructor(private headerService : HeaderService, private tokenStorage: TokenStorageService, private familyService: FamilyService, private snackBarService: MessageSnackBarService) {
     
@@ -50,6 +52,7 @@ export class FamilyComponent implements OnInit {
    //Colocar os valores do form de pessoas 
    getFamiliesFromComponent(): void {
     this.familyService.getFamilies().subscribe(
+      
       data => {
         this.families = data;
         this.snackBarService.showSuccessMessage(data.length + " Family listed succesfuly");

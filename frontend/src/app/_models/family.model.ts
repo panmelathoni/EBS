@@ -1,6 +1,7 @@
+import { Person } from './person.model';
 export interface Family {
     id?: number,
     name: string,
-    maxPerson: number,
-    person: number[]
+    max_persons: number,
+    persons: Person[]
 }

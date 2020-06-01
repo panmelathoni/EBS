@@ -53,7 +53,8 @@ import { CreatePersonComponent } from './create-person/create-person.component';
      PersonAndFamilyStepperComponent, 
      UpdatePersonComponent, 
      UpdateFamilyComponent, 
-     DeletePersonComponent, CreatePersonComponent
+     DeletePersonComponent, 
+     CreatePersonComponent
   ],
   imports: [
     BrowserModule,
