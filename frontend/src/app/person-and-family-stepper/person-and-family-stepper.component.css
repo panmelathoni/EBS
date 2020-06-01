@@ -9,3 +9,12 @@
 .center-align{
     text-align: center;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h4{
+    margin-top: 25px;
+}
