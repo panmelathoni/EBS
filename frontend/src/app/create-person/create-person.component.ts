@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MessageSnackBarService } from './../_services/message-snack-bar.service';
 import { FamilyService } from './../_services/family.service';
 import { PersonService } from './../_services/person.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 import {
   FormBuilder,
@@ -27,7 +29,9 @@ export class CreatePersonComponent implements OnInit {
     private formBuilder: FormBuilder,
     private personService: PersonService,
     private familyService: FamilyService,
-    private snackBarService: MessageSnackBarService
+    private snackBarService: MessageSnackBarService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +74,9 @@ export class CreatePersonComponent implements OnInit {
       (data) => {
         this.snackBarService.showSuccessMessage(
           'Person ' + data.name + ' created succesfuly'
-        );
+        ) 
+        this.router.navigate(['/person']);
+
       },
       (err) => {
 

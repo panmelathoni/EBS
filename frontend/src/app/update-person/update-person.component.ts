@@ -73,6 +73,7 @@ export class UpdatePersonComponent implements OnInit {
           'Person ' + data.name + ' updated succesfuly'
         );
       },
+      
       (err) => {
         var error =  err.error != null ? err.error : err.message;
         this.snackBarService.showErrorMessage(

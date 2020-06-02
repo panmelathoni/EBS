@@ -10,6 +10,7 @@ const TOKEN_HEADER_KEY = 'Authorization';
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private token: TokenStorageService) { }
 
+  //toda classe intercept precisa passar como parametro o HTTPRquest e o HTTPHandler
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let authReq = req;
     const token = this.token.getToken();

@@ -53,7 +53,7 @@ selection = new SelectionModel<Person>(allowMultiSelect, initialSelection);
     if (this.familyFormGroup.valid) {
       this.executeFamilyCreation(familyFormGroupValue);
     }
-    this.router.navigate(['/person']);
+    this.router.navigate(['/family']);
   }
  
   private executeFamilyCreation = (familyFormGroupValue) => {
@@ -85,9 +85,7 @@ selection = new SelectionModel<Person>(allowMultiSelect, initialSelection);
     );
   }
 
-  cancel(): void {
-    this.router.navigate(['/person']);
-  }
+ 
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;

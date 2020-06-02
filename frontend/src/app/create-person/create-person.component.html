@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-title>Person Update</mat-card-title>
+    <mat-card-title>Create Person</mat-card-title>
 <form [formGroup]="personFormGroup" (ngSubmit)="createPerson(personFormGroup.value)" > 
     <mat-form-field class="form-field-config">
         <input matInput placeholder="User Name" type="text" name="username" formControlName="username" required/>
